@@ -1,0 +1,37 @@
+h1{
+    color: #333;
+    /* 转大写 */
+    text-transform: uppercase;
+    font-size: 130px;
+    /* 相对定位 */
+    position: relative;
+}
+h1::after{
+    content: "黄治贤♥卢雨初";
+    /* 颜色为透明 */
+    color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right,#005c92,#2d82b5,#53a7d8,#88cdf6,#bce6ff,#88cdf6,#53a7d8,#2d82b5,#005c92);
+    /* 以文字的范围来裁剪背景图片 */
+    background-clip: content-box;
+    -webkit-background-clip: text;
+    /* 将元素裁剪为一个圆形（100px表示圆的直径，0% 50%表示圆心的位置） */
+    clip-path: circle(120px at 0% 50%);
+    /* 执行动画（动画 时长 infinite表示无限次播放） */
+    animation: light 5s infinite;
+}
+
+/* 定义动画 改变圆心的位置 */
+@keyframes light{
+    0%{
+        clip-path: circle(100px at 0% 50%);
+    }
+    50%{
+        clip-path: circle(100px at 100% 50%);
+    }
+    100%{
+        clip-path: circle(100px at 0% 50%);
+    }
+}
